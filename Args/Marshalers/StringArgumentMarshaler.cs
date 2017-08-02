@@ -1,4 +1,4 @@
-﻿namespace Args.ArgumentMarshaler
+﻿namespace Args.Marshalers
 {
     using System;
     using System.Collections.Generic;

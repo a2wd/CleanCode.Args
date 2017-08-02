@@ -1,6 +1,8 @@
 ﻿namespace Args
 {
     using ArgumentMarshaler;
+    using global::Args.Exceptions;
+    using global::Args.Marshalers;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -65,7 +67,7 @@
         {
             if(char.IsLetter(elementId) == false)
             {
-                throw new ArgsException(INVALID_ARGUMENT_NAME, elementId, null);
+                throw new ArgsException(ErrorCodes.INVALID_ARGUMENT_NAME, elementId, null);
             }
         }
 
@@ -95,10 +97,10 @@
 
         private void parseArgumentCharacter(char argChar)
         {
-            ArgumentMarshaler m;
+            IArgumentMarshaler m;
             if(marshalers.TryGetValue(argChar, out m) == false)
             {
-                throw new ArgsException(UNEXPECTED_ARGUMENT, argChar, null);
+                throw new ArgsException(ErrorCodes.UNEXPECTED_ARGUMENT, argChar, null);
             }
             else
             {

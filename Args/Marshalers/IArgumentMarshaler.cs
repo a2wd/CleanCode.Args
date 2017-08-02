@@ -1,4 +1,4 @@
-﻿namespace Args.ArgumentMarshaler
+﻿namespace Args.Marshalers
 {
     public interface IArgumentMarshaler
     {

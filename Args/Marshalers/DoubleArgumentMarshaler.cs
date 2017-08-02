@@ -1,8 +1,8 @@
-﻿namespace Args.ArgumentMarshaler
+﻿namespace Args.Marshalers
 {
     using System;
 
-    public class IntegerArgumentMarshaler : IArgumentMarshaler
+    public class DoubleArgumentMarshaler : IArgumentMarshaler
     {
         public void set(int currentArgument)
         {

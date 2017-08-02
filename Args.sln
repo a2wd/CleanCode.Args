@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Args.Console", "Args.Console\Args.Console.csproj", "{F12E0E6D-3D50-4D3C-A395-22D16797A958}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Args.Console", "Args.Console\Args.Console.csproj", "{F12E0E6D-3D50-4D3C-A395-22D16797A958}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Args.Tests", "Args.Tests\Args.Tests.csproj", "{4DDCED22-FE62-4954-8E75-58E07C540FAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Args.Tests", "Args.Tests\Args.Tests.csproj", "{4DDCED22-FE62-4954-8E75-58E07C540FAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Args", "Args\Args.csproj", "{DEDF0EB7-9FFC-4A8F-A7DB-3A8E134DC8E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Args", "Args\Args.csproj", "{DEDF0EB7-9FFC-4A8F-A7DB-3A8E134DC8E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{47201F1B-5D73-437F-9AD5-F9FE13AD8A6B}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

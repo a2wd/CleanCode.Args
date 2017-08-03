@@ -74,12 +74,11 @@
         {
             currentArgument = argsList.GetEnumerator();
 
-            for(int argsListIndex = 0; argsListIndex < argsList.Count; argsListIndex++)
+            for(currentArgument = argsList.GetEnumerator(); currentArgument.MoveNext() == true;)
             {
-                var argString = argsList[argsListIndex];
+                var argString = currentArgument.Current;
                 if(argString.StartsWith("-"))
                 {
-                    currentArgument.MoveNext();
                     parseArgumentCharacters(argString.Substring(1));
                 }
                 else

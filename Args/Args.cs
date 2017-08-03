@@ -1,17 +1,16 @@
 ﻿namespace Args
 {
-    using ArgumentMarshaler;
-    using global::Args.Exceptions;
-    using global::Args.Marshalers;
+    using Exceptions;
+    using Marshalers;
     using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    class Args
+    public class Args
     {
         private Dictionary<char, IArgumentMarshaler> marshalers;
-        private ISet<char> argsFound; //List?
-        private int currentArgument;
+        private ISet<char> argsFound;
+        private IEnumerator<string> currentArgument;
 
         public Args(string schema, string[] args)
         {
@@ -47,7 +46,7 @@
             }
             else if(elementTail.Equals("#"))
             {
-                marshalers.Add(elementId, new IntegerArgumentMarshaler());
+                marshalers.Add(elementId, new IntArgumentMarshaler());
             }
             else if(elementTail.Equals("##"))
             {
@@ -59,7 +58,7 @@
             }
             else
             {
-                throw new ArgsException(INVALID_ARGUMENT_FORMAT, elementId, elementTail);
+                throw new ArgsException(ErrorCodes.INVALID_ARGUMENT_FORMAT, elementId, elementTail);
             }
         }
 
@@ -73,16 +72,19 @@
 
         private void parseArgumentStrings(List<string> argsList)
         {
-            for(currentArgument = 0; currentArgument < argsList.Count; index++)
+            currentArgument = argsList.GetEnumerator();
+
+            for(int argsListIndex = 0; argsListIndex < argsList.Count; argsListIndex++)
             {
-                var argString = argsList[currentArgument];
+                var argString = argsList[argsListIndex];
                 if(argString.StartsWith("-"))
                 {
+                    currentArgument.MoveNext();
                     parseArgumentCharacters(argString.Substring(1));
                 }
                 else
                 {
-                    currentArgument--;
+                    break;
                 }
             }
         }
@@ -124,8 +126,19 @@
 
         public int nextArgument()
         {
-            currentArgument++;
-            return currentArgument;
+            int currentItem = currentArgument.Current.GetHashCode();
+            int index = 0;
+            foreach(var arg in argsFound)
+            {
+                if (arg.GetHashCode() == currentItem.GetHashCode())
+                {
+                    return index;
+                }
+
+                index++;
+            }
+
+            return -1;
         }
 
         public bool getBoolean(char arg)

@@ -1,14 +1,15 @@
 ﻿namespace Args.Marshalers
 {
     using System;
+    using System.Collections.Generic;
 
     public class BooleanArgumentMarshaler : IArgumentMarshaler
     {
         private bool booleanValue = false;
 
-        public void set(int currentArgument)
+        public void set(IEnumerator<string> currentArgument)
         {
-            throw new NotImplementedException();
+            booleanValue = true;
         }
 
         public static bool getValue(IArgumentMarshaler am)

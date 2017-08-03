@@ -13,13 +13,13 @@
             string parameter = string.Empty;
             try
             {
-                currentArgument.MoveNext();
+                if(currentArgument.MoveNext() == false)
+                {
+                    throw new ArgsException(ErrorCodes.MISSING_STRING);
+                }
+
                 parameter = currentArgument.Current;
                 stringArrayValue = parameter.Split(new string[] { "," }, StringSplitOptions.None);
-            }
-            catch(InvalidOperationException)
-            {
-                throw new ArgsException(ErrorCodes.MISSING_STRING);
             }
             catch(ArgumentException)
             {

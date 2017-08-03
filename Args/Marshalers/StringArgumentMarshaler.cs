@@ -10,15 +10,12 @@
 
         public void set(IEnumerator<string> currentArgument)
         {
-            try
-            {
-                currentArgument.MoveNext();
-                stringValue = currentArgument.Current;
-            }
-            catch(InvalidOperationException e)
+            if (currentArgument.MoveNext() == false)
             {
                 throw new ArgsException(ErrorCodes.MISSING_STRING);
             }
+
+            stringValue = currentArgument.Current;
         }
 
         public static string getValue(IArgumentMarshaler am)

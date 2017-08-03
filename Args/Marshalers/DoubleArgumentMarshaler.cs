@@ -13,14 +13,13 @@
             string parameter = null;
             try
             {
-                currentArgument.MoveNext();
-                parameter = currentArgument.Current;
+                if(currentArgument.MoveNext() == false)
+                {
+                    throw new ArgsException(ErrorCodes.MISSING_DOUBLE);
+                }
 
+                parameter = currentArgument.Current;
                 doubleValue = double.Parse(parameter);
-            }
-            catch(InvalidOperationException)
-            {
-                throw new ArgsException(ErrorCodes.MISSING_DOUBLE);
             }
             catch(ArgumentNullException)
             {

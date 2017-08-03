@@ -14,13 +14,13 @@
 
             try
             {
-                currentArgument.MoveNext();
+                if(currentArgument.MoveNext() == false)
+                {
+                    throw new ArgsException(ErrorCodes.MISSING_INTEGER);
+                }
+
                 parameter = currentArgument.Current;
                 intValue = int.Parse(parameter);
-            }
-            catch(InvalidOperationException e)
-            {
-                throw new ArgsException(ErrorCodes.MISSING_INTEGER);
             }
             catch(ArgumentNullException e)
             {

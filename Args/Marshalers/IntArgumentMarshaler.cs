@@ -28,7 +28,7 @@
             }
             catch(FormatException e)
             {
-                throw new ArgsException(ErrorCodes.INVALID_INTEGER);
+                throw new ArgsException(ErrorCodes.INVALID_INTEGER, parameter);
             }
             catch(OverflowException e)
             {

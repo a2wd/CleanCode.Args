@@ -2,7 +2,7 @@
   "profiles": {
     "Args.Console": {
       "commandName": "Project",
-      "commandLineArgs": "-l -p 1234 -d C:\\temp"
+      "commandLineArgs": "-l -p 1234 -d C:\\temp -a my,very,earnest,mother"
     }
   }
 }

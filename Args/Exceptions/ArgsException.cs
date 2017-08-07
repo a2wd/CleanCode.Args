@@ -69,15 +69,15 @@
                 case ErrorCodes.UNEXPECTED_ARGUMENT:
                     return $"Argument -{errorArgumentId} unexpected.";
                 case ErrorCodes.MISSING_STRING:
-                    return $"Could not find string parameter for -{errorArgumentId}.";
+                    return $"Could not find a string parameter for -{errorArgumentId}.";
                 case ErrorCodes.INVALID_INTEGER:
                     return $"Argument -{errorArgumentId} expects an integer but was '{errorParameter}'.";
                 case ErrorCodes.MISSING_INTEGER:
-                    return $"Could not find integer parameter for -{errorArgumentId}.";
+                    return $"Could not find an integer parameter for -{errorArgumentId}.";
                 case ErrorCodes.INVALID_DOUBLE:
                     return $"Argument -{errorArgumentId} expects a double but was '{errorParameter}'.";
                 case ErrorCodes.MISSING_DOUBLE:
-                    return $"Could not find double parameter for -{errorArgumentId}.";
+                    return $"Could not find a double parameter for -{errorArgumentId}.";
                 case ErrorCodes.INVALID_ARGUMENT_NAME:
                     return $"'{errorArgumentId}' is not a valid argument name.";
                 case ErrorCodes.INVALID_ARGUMENT_FORMAT:
